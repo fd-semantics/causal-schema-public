@@ -6,21 +6,21 @@ Splitting the data this way corresponds to a single variant of how we can evalua
 
 Note the following similarities and differences of the two splits:
 
- Markup : * Each train `text` is shorter than a corresponding dev `text` that contains it (i.e. dev texts are longer contexts)
+* Each train `text` is shorter than a corresponding dev `text` that contains it (i.e. dev texts are longer contexts)
 
-    * Train examples include *temporal* `questions` and `answers` from TORQUE. In contrast, dev examples have  *event structure* `questions` and `answers` from ESTER (see paper for details).
+* Train examples include *temporal* `questions` and `answers` from TORQUE. In contrast, dev examples have  *event structure* `questions` and `answers` from ESTER (see paper for details).
 
-    * To make schemas, use `event_types` instead of natural language nodes in `causal_graph`!
+* To make schemas, use `event_types` instead of natural language nodes in `causal_graph`!
 
-    * In train, `event_types` are assigned at node level, while in the dev split `event_types` are at the graph level (as single concatenated string).
+* In train, `event_types` are assigned at node level, while in the dev split `event_types` are at the graph level (as single concatenated string).
 
-    * We include `noncausal_event_types` with the train examples; these represent text mentions that judged to not contribute to the overall causal story
+* We include `noncausal_event_types` with the train examples; these represent text mentions that judged to not contribute to the overall causal story
 
-    * `Causal_graph` represents the latent causal structure of the event sequence described in the `text`. We make the graphs populating the nodes with text mentions *or* simple event descriptions in natural language
+* `Causal_graph` represents the latent causal structure of the event sequence described in the `text`. We make the graphs populating the nodes with text mentions *or* simple event descriptions in natural language
 
-    * Train causal graphs include both short and full causal relations (`rel` and `full_rel`) (see paper for definitions of all causal relations)
+* Train causal graphs include both short and full causal relations (`rel` and `full_rel`) (see paper for definitions of all causal relations)
 
-    * Dev causal graphs include annotations for `saliency` (most important paths in the causal graph)
+* Dev causal graphs include annotations for `saliency` (most important paths in the causal graph)
 
 
 Summarizing the above, an instance in each split takes these forms:
