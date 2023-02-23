@@ -6,7 +6,7 @@ Splitting the data this way corresponds to a single variant of how we can evalua
 
 Note the following similarities and differences of the two splits:
 
-    * Each train `text` is shorter than a corresponding dev `text` that contains it (i.e. dev texts are longer contexts)
+ Markup : * Each train `text` is shorter than a corresponding dev `text` that contains it (i.e. dev texts are longer contexts)
 
     * Train examples include *temporal* `questions` and `answers` from TORQUE. In contrast, dev examples have  *event structure* `questions` and `answers` from ESTER (see paper for details).
 
