@@ -1,54 +1,60 @@
+##TORQUESTRA data
+
 Data in two splits: 'train' (698 exs.) and 'dev' (180 exs.)
 
 This split corresponds to one way we imagine we can evaluate causal generative models. The way the data is here presented, train graphs are 'mini' versions of corresponding dev graphs. Graphs corresponding to one another share the samee `torque_id`. Viewing the data in this way makes it easy to view the task as one of 'growing' a causal graph from a seed graph instantiation. 
 
 The two splits have the following similarities and differences:
 
-*Train texts are shorter than dev texts. Each dev text is longer context than a corresponding train text. A causal graph represents the latent causal structure of the event sequence described in the text.
+    *Each train `text` is shorter than a corresponding dev `text` that contains it (i.e. dev texts are longer contexts)
 
-*Train examples include corresponding *temporal* questions and answers from TORQUE. In contrast, dev examples have corresonding *event structure* questions and answers from ESTER (see paper for details).
+    *Train examples include *temporal* `questions` and `answers` from TORQUE. In contrast, dev examples have  *event structure* `questions` and `answers` from ESTER (see paper for details).
 
-*To make schemas, use event_types instead of natural language nodes in causal_graph!
+    *To make schemas, use `event_types` instead of natural language nodes in `causal_graph`!
 
-*In train, event_types are assigned at node level, while in the dev split event_types are at the graph level (as single concatenated string).
+    *In train, `event_types` are assigned at node level, while in the dev split `event_types` are at the graph level (as single concatenated string).
 
-*We include `noncausal_event_types` with the train examples; these represent text mentions that judged to not contribute to the overall causal story
+    *We include `noncausal_event_types` with the train examples; these represent text mentions that judged to not contribute to the overall causal story
 
-*Train and dev causal graphs have natural language descriptions of events from the texts. As dev causal graphs are based on longer texts, dev graphs have more nodes than train graphs.
+    *`Causal_graph` represents the latent causal structure of the event sequence described in the `text`
 
-*Train causal graphs include both short and full causal relations (see paper).
+    *Train and dev causal graphs have natural language descriptions of events from the texts. As dev causal graphs are based on longer texts, dev graphs have more nodes than those in train.
 
-*Dev causal graphs include annotations for 'saliency' (most important paths in the causal graph)
+    *Train causal graphs include both short and full causal relations (`rel` and `full_rel`) (see paper for definitions for all causal relations).
+
+    *Dev causal graphs include annotations for `saliency` (most important paths in the causal graph)
 
 
 Summarizing the above, an instance in each split takes these forms:
 
 train
 
-```json
-{'split': 'train',
-'source': str 'torque',
-'torque_id': str,
-'text': str,
-'questions': List[str],
-'answers': List[List[str]],
-'event_types: Dict(@node str: @event_type str),
-'noncausal_event_types': Dict(@mention-text str: @event_type str)
-'causal_graph': List[Dict('head': str, 'tail': str, 'rel': str, 'rel_full': str)],
+```
+{
+    'split': 'train',
+    'source': 'torque',
+    'torque_id': str,
+    'text': str,
+    'questions': List[str],
+    'answers': List[List[str]],
+    'event_types: Dict(@node str: @event_type str),
+    'noncausal_event_types': Dict(@mention-text str: @event_type str)
+    'causal_graph': List[Dict('head': str, 'tail': str, 'rel': str, 'rel_full': str)],
 }
 ```
 
 dev
 
-```json
-{'split': 'dev',
-'source': 'ester',
-'torque_id': str,
-'text': str,
-'questions': List[str],
-'answers': List[str],
-'schema_graph_event_types: str,
-'causal_graph': List[Dict('head': str, 'tail': str, 'rel': str, 'saliency': bool 0|1)],
+```
+{
+    'split': 'dev',
+    'source': 'ester',
+    'torque_id': str,
+    'text': str,
+    'questions': List[str],
+    'answers': List[str],
+    'schema_graph_event_types: str,
+    'causal_graph': List[Dict('head': str, 'tail': str, 'rel': str, 'saliency': bool)],
 }
 ```
 
