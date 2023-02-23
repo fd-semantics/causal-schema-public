@@ -56,7 +56,7 @@ dev
 }
 ```
 
-Here are two full example for comparison side to side. Note that the train example's `torque_id` is the same as the dev example (the dev text contains the train text).
+Here are two full examples for comparison side to side of the `train` and `dev` splits. Note that both examples share the same `torque_id` (the dev text contains the train text).
 
 ```json
 [
