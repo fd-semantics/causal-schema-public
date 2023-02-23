@@ -12,9 +12,9 @@ Note the following similarities and differences of the two splits:
 
 * To make schemas, use `event_types` instead of natural language nodes in `causal_graph`!
 
-* In train, `event_types` are assigned at node level, while in the dev split `event_types` are at the graph level (as single concatenated string).
+* In train, `event_types` are assigned at node level, while in the dev split `event_types` are at the graph level (as a single concatenated string, semi-colon separated).
 
-* We include `noncausal_event_types` with the train examples; these represent text mentions that judged to not contribute to the overall causal story
+* We include `noncausal_event_types` with the train examples; these represent text mentions judged to not contribute to the overall causal story
 
 * `Causal_graph` represents the latent causal structure of the event sequence described in the `text`. We make the graphs populating the nodes with text mentions *or* simple event descriptions in natural language
 
