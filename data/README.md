@@ -25,6 +25,7 @@ Summarizing the above, an instance in each split takes these forms:
 
 train
 
+```json
 {'split': 'train',
 'source': str 'torque',
 'torque_id': str,
@@ -35,9 +36,11 @@ train
 'noncausal_event_types': Dict(@mention-text str: @event_type str)
 'causal_graph': List[Dict('head': str, 'tail': str, 'rel': str, 'rel_full': str)],
 }
+```
 
 dev
 
+```json
 {'split': 'dev',
 'source': 'ester',
 'torque_id': str,
@@ -47,11 +50,11 @@ dev
 'schema_graph_event_types: str,
 'causal_graph': List[Dict('head': str, 'tail': str, 'rel': str, 'saliency': bool 0|1)],
 }
-
+```
 
 Here are two full example for comparison side to side. Note that the train example's `torque_id` is the same as the dev example (the dev text contains the train text).
 
-
+```json
 [
     {
         "split": "train",
@@ -237,3 +240,4 @@ Here are two full example for comparison side to side. Note that the train examp
         ]
     }
 ]
+```
