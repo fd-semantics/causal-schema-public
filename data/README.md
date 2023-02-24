@@ -1,6 +1,6 @@
 ## TORQUESTRA data
 
-This folder contains human-made and machine-generated causal graphs and associated data (texts, event types, temporal questions, event structure questions, etc.)
+This folder contains machine-generated (`torquestra-auto.json`) and human-made (`torquestra-human.json`) causal graphs with associated data (texts, topics, event types, temporal questions, event structure questions, etc.)
 
 ### torquestra-auto.json 
 
