@@ -45,7 +45,7 @@
         "event_types": {
             "basis": "Sentiment;Suspicion",
             "Keating was released": "Action;Legality;Legal_rulings;Releasing",
-            "not eligible for parole": "Action;Legality;Legal_rulings",
+            "Keating not eligible for parole": "Action;Legality;Legal_rulings",
             "issues that had not been raised before": "Scenario",
             "ruled that the original appeal was flawed": "Action;Legality;Legal_rulings"
         },
@@ -60,7 +60,7 @@
                 "rel_full": "ENABLES::BEGINS"
             },
             {
-                "head": "not eligible for parole",
+                "head": "Keating not eligible for parole",
                 "tail": "Keating was released",
                 "rel": "BLOCKS",
                 "rel_full": "BLOCKS::WITHOUT EFFECT"
