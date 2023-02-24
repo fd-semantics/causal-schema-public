@@ -1,5 +1,7 @@
 ## TORQUESTRA data
 
+This folder contains human-made and machine-generated causal graphs and associated data (texts, event types, temporal questions, event structure questions, etc.)
+
 ### torquestra-auto.json 
 
 A sample of 3k causal noisy graphs generated using GPT2-XL_distill (West et al, 2022). These data instances are the same as the examples for the matching experiments available in this repo, which we use as a proxy measure for the overall quality of generation.
