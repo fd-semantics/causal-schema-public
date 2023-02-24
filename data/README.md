@@ -1,6 +1,27 @@
 ## TORQUESTRA data
 
-Data in two splits: `train` (698 exs.) and `dev` (180 exs.)
+### torquestra-auto.json 
+
+A sample of 3k causal noisy graphs generated using GPT2-XL_distill (West et al, 2022). These data instances are the same as the examples for the matching experiments available in this repo, which we use as a proxy measure for the overall quality of generation.
+
+The data for `maven_topic` and the event types in `text_with_events` are from the MAVEN dataset (Wang et al, 2020).
+
+Data instance has form:
+
+```
+{
+    'wikipedia_title': str,
+    'maven_topic': str,
+    'text_with_events': str,
+    'graph': Dict,
+    'graph_metadata: Dict
+}
+```
+
+
+### torquestra-human.json 
+
+This is the manually created dataset. The Data are assigned to two splits: `train` (698 exs.) and `dev` (180 exs.)
 
 Splitting the data this way corresponds to a single variant of how we can evaluate causal generative models: one of *growing* a causal graph from a seed graph instantiation. That is, each train `causal_graph` is a 'mini' version of a corresponding `dev` graph. Graphs corresponding to one another share the same `torque_id`.
 
