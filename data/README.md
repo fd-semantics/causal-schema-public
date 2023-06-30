@@ -1,6 +1,6 @@
 ## TORQUESTRA data
 
-This folder contains machine-generated (`torquestra-auto.json`) and human-made (`torquestra-human.json`) causal graphs with associated data (texts, topics, event types, temporal questions, event structure questions, etc.)
+This folder contains machine-generated (`torquestra-auto.json`) and human-made (`torquestra-human.json`) causal graphs with associated data (texts, topics, event types, temporal questions, event structure questions, etc.). We also include data resources from other work: hierarchical event types (`maven-hierarchy-complete.csv`) and the RESIN schema library (`resin11-schema-library.json`), formatted specifically for the demo code. See paper for citations.
 
 ### torquestra-auto.json 
 
