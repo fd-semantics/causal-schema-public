@@ -75,6 +75,7 @@ We fine-tuned a knowledge distilled version of GPT2-XL on the TORQUESTRA dataset
 
 ### Sample generated causal graph (Wikipedia)
 
+```
 {'title': '2006 Pangandaran earthquake and tsunami', 
 'text': "The 2006 Pangandaran earthquake and tsunami occurred on July 17 at along a subduction zone off the coast of west and central Java , a large and densely populated island in the Indonesian archipelago . The shock had a moment magnitude of 7.7 ... [+300-600 tokens]", 
 'topic': 'natural-disaster', 
@@ -85,7 +86,7 @@ We fine-tuned a knowledge distilled version of GPT2-XL on the TORQUESTRA dataset
                 'pagerank': {'Entity::Japanese Meteorological Center': 0.03, 'Entity::people at the coast': 0.03, 'Entity::American tsunami   
                       warning center': 0.03, 'Entity::Tungkang': 0.03, 'Entity::Electricity Company of Vietnam': 0.03, 'Entity::Panganda': 0.03, 'Indian Ocean earthquake': 0.03, 'high runups of tsunamismic wave': 0.03, 'deaths': 0.04, 'damage to homes': 0.04, 'high runups of tsunami': 0.04, 'tsunami watch': 0.05, 'tsunami': 0.05, 'people notice tsunami': 0.05, 'tsunami watch posted': 0.05, 'Entity::Electricity of Vietnam': 0.05, 'Entity::Pangandaran': 0.05, 'Entity::Indonesia': 0.05, 'damage to Indonesia': 0.05, 'awareness of tsunami': 0.11, 'people flee homes': 0.15}, 
                 'events': ['Causation', 'Know', 'Destroying', 'Death', 'Damaging', 'Catastrophe', 'Sending', 'Entity', 'Presence']'}
-
+```
 
 
 ### Citation
