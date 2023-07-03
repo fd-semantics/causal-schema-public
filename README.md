@@ -72,6 +72,7 @@ We fine-tuned a knowledge distilled version of GPT2-XL on the TORQUESTRA dataset
 ## Data
 ### Sample data instance from TORQUESTRA
 
+For more examples, see the ```data``` directory.
 
 ### Sample generated causal graph (Wikipedia)
 
