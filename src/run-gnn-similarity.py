@@ -48,7 +48,7 @@ from visualization import (
 
 """
 
-This is the main script for schema matching and clustering using graph neural networks for graph embeddings. 
+This is the main script for schema matching and clustering using TFIDF, event similarity, and graph neural networks. 
 See the README for details on implementation and the paper for a higher-level overview.
 
 
@@ -153,7 +153,7 @@ def run_model(train_loader,
 
 	for epoch in range(1, epochs):
 		train_loss = train(train_loader)
-		## prelimnary experiments with unsupervised learning using graph neural networks. e.g., Graph Attention Network (GAT)
+		## preliminary experiments with unsupervised learning using graph neural networks. e.g., Graph Attention Network (GAT)
 		## transforming embedding space so that each node in graph is good predictor of whole graph embedding
 		## displaying range of loss: this reduces by half (from 1.0 to 0.5 over 2 epochs of training)
 		## this is a lightweight model and trains in a matter of seconds on GPU (or few mins on CPU)
@@ -224,7 +224,7 @@ def main():
 	write_data_path = Path(args.write_data_path)
 
 	if not write_data_path.is_dir():
-		print('LOGGING: check directory for writing results')
+		print('Need to specify directory for writing results')
 
 	torquestra = get_torquestra(args.torquestra_path)
 
