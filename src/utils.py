@@ -193,10 +193,10 @@ def create_graphs_from_sys_output(torquestra, generated_sys_output, resin, model
 					## only test texts (Maven) have assigned topic labels
 					thisTopic = ''
 					mention2event = dict()
-					if graph_name=='maven_graph':
+					if graph_name=='graph':
 						isMaven=True
-						thisTopic = data_instance['topic']
-						mention2event = data_instance['mention2event']
+						thisTopic = data_instance['maven_topic']
+						#mention2event = data_instance['mention2event']
 					# a misnomer -- but have not generated this data yet, 2023-02-23
 					elif graph_name=='torquestra_validation_graph':
 						isMaven=True
@@ -209,16 +209,16 @@ def create_graphs_from_sys_output(torquestra, generated_sys_output, resin, model
 					else:
 						isResin=False
 
-					if graph_name=='causal_graph_detailed':
-						isSchema=True
-					else:
-						isSchema=False
+					# if graph_name=='causal_graph_detailed':
+					# 	isSchema=True
+					# else:
+					# 	isSchema=False
 					
 					data.isMaven = isMaven
 					data.topic = thisTopic
 					data.mention2event = mention2event
 					data.isResin = isResin
-					data.isSchema = isSchema
+					#data.isSchema = isSchema
 
 					list_objects.append(data)
 
@@ -265,7 +265,7 @@ def get_dataloaders(dataset, batch_size=16):
 
 	print(f'Number of training graphs: {len(train_dataset)}')
 	print(f'Number of validation graphs: {len(valid_dataset)}')
-	print(f'Number of test graphs: {len(test_dataset)}')
+	print(f'`Number of test graphs`: {len(test_dataset)}')
 	print(f'Number of resin graphs: {len(resin_dataset)}')
 	#print(f'Number of schema graphs: {len(schema_dataset)}')
 
