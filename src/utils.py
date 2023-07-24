@@ -323,7 +323,7 @@ def get_maven_sys_output(maven_sys_output_path, maven_topics):
 			text = item['text_with_events'].replace('TEXT: ', '')
 			temp_text = ''.join([o if '::' not in o else o.split('::')[-1] for o in text.split()[:20]])
 			graph = item['graph']
-			pagerank = item['pagerank']
+			pagerank = item['graph_metadata']['pagerank']
 			#sys_output = item['sys_output']
 
 			# this is not so elegant way of matching topics and titles to texts
