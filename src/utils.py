@@ -311,7 +311,7 @@ def get_maven_sys_output(maven_sys_output_path, maven_topics):
 
 	for item in sys_output_complete:
 
-		if 'graph' not in item['graph_metrics_pred']:
+		if 'graph' not in item:
 			cnt_missing_graphs+=1
 			continue
 
@@ -320,11 +320,11 @@ def get_maven_sys_output(maven_sys_output_path, maven_topics):
 			maven_mention2eventType = dict()
 			title, topic = '', ''
 
-			text = item['text'].replace('TEXT: ', '')
+			text = item['text_with_events'].replace('TEXT: ', '')
 			temp_text = ''.join([o if '::' not in o else o.split('::')[-1] for o in text.split()[:20]])
-			graph = item['graph_metrics_pred']['graph']
-			pagerank = item['graph_metrics_pred']['pagerank']
-			sys_output = item['sys_output']
+			graph = item['graph']
+			pagerank = item['pagerank']
+			#sys_output = item['sys_output']
 
 			# this is not so elegant way of matching topics and titles to texts
 			for obj in maven_topics:
@@ -354,7 +354,7 @@ def get_maven_sys_output(maven_sys_output_path, maven_topics):
 									'maven_graph': graph, 
 									'pagerank': pagerank, 
 									'events': common_event_types,
-									'sys_output': sys_output,
+									#'sys_output': sys_output,
 									'mention2event': maven_mention2eventType})
 
 	print("maven example")
