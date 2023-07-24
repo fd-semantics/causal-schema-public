@@ -48,7 +48,7 @@ def create_graphs_from_sys_output(torquestra, generated_sys_output, resin, model
 
 	for data_instance in tqdm(data_list):
 
-		graph_names = ['causal_graph_dfs', 'causal_graph_detailed', 'ester_causal_graph', 'causal_graph', 'maven_graph', 'resin_graph', 'torquestra_validation_graph']
+		graph_names = ['causal_graph', 'graph', 'resin_graph']
 
 		torque_id = ''
 		if 'torque_id' in data_instance:
@@ -57,12 +57,12 @@ def create_graphs_from_sys_output(torquestra, generated_sys_output, resin, model
 		for graph_name in graph_names:
 
 			origin = ''
-			if graph_name=='causal_graph_detailed':
-				origin='schema-original'
-			elif 'origin' in data_instance:
-				origin = data_instance['origin']
-			else:
-				origin = graph_name.replace('_graph', '')
+			# if graph_name=='causal_graph_detailed':
+			# 	origin='schema-original'
+			# elif 'origin' in data_instance:
+			# 	origin = data_instance['origin']
+			# else:
+			# 	origin = graph_name.replace('_graph', '')
 
 			if graph_name in data_instance:
 
@@ -79,7 +79,7 @@ def create_graphs_from_sys_output(torquestra, generated_sys_output, resin, model
 					all_elements = set()
 					sys_output, graph_stats,  = '', ''
 
-					if graph_name not in ['maven_graph', 'torquestra_validation_graph']:
+					if graph_name not in ['graph']:
 						# for torquestra data and torquestra schemas
 						for element in thisGraph:
 							if 'rel' in element:
