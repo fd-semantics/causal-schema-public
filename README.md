@@ -30,6 +30,7 @@ Create anaconda environment
 conda create --name torch-gnn python=3.10 && conda activate torch-gnn
 conda install -y python=3.10 tqdm numpy scipy jupyter pandas matplotlib
 conda install pytorch==1.11.0 torchvision==0.12.0 torchaudio==0.11.0 cudatoolkit=11.3 -c pytorch
+conda install pyg -c pyg
 
 # This sometimes resolves problems with numpy ndarray size
 pip uninstall numpy
@@ -41,11 +42,11 @@ pip install -r requirements.txt
 To try out a sample cluster with the 3000 MAVEN Wikipedia articles, use the following. The first time this will take ~15+ minutes as embeddings for all the graph nodes need to be computed, which are then cached (update the cache path as necessary). To view data stats or to save sample figures for the clusters, change those flags to True.
 
 ```bash
-python run-gnn-similarity.py \
+python src/run-gnn-similarity.py \
 --model_name all-mpnet-base-v2 \
---cache_path data/gnn_cache/maven-similarity-16-epochs-high-700-3k-maven.pickle \
+--cache_path data/maven-similarity-16-epochs-high-700-3k-maven.pickle \
 --torquestra_path data/torquestra-human-2023-02-23.json \
---generated_output_path data/torquestra-auto-gpt2xl-high-maven-adversarial.json \
+--generated_output_path data/torquestra-auto-gpt2xl-high-maven-adversarial-16epochs-650block_size-2023-02-12.json \
 --resin_path data/resin11-schema-library.json \
 --maven_path data/maven-hierarchy-complete.csv \
 --topics_path data/maven-for-gen-with-topics.json \
