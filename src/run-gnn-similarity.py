@@ -224,7 +224,9 @@ def main():
 	write_data_path = Path(args.write_data_path)
 
 	if not write_data_path.is_dir():
-		print('Need to specify directory for writing results')
+		print('Making directory for writing: reports/')
+		os.makedirs('reports/')
+		print()
 
 	torquestra = get_torquestra(args.torquestra_path)
 
