@@ -19,7 +19,7 @@ The following resources are available:
 * Sample processed schema from RESIN-11
 * Code for clustering experiments using graph and text similarity methods
 * Code for schema matching experiments
-* Code for causal graph inference with trained model
+* (Coming soon!) Code for causal graph inference with trained model
 
 ## Environment 
 
