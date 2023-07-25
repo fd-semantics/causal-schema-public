@@ -314,7 +314,7 @@ def display_graph_stats(list_graphs):
 		print()
 		print(f'isMaven: {data.isMaven}')
 		print(f'isResin: {data.isResin}')
-		print(f'isSchema: {data.isSchema}')
+		#print(f'isSchema: {data.isSchema}')
 		print(f'mention2event: {data.mention2event}')
 		print(f'topic: {data.topic}')
 		print(f'number nodes: {data.num_nodes}')
