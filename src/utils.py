@@ -48,7 +48,7 @@ def create_graphs_from_sys_output(torquestra, generated_sys_output, resin, model
 
 	for data_instance in tqdm(data_list):
 
-		graph_names = ['causal_graph', 'graph', 'resin_graph']
+		graph_names = ['causal_graph', 'maven_graph', 'resin_graph']
 
 		torque_id = ''
 		if 'torque_id' in data_instance:
@@ -79,8 +79,8 @@ def create_graphs_from_sys_output(torquestra, generated_sys_output, resin, model
 					all_elements = set()
 					sys_output, graph_stats,  = '', ''
 
-					if graph_name not in ['graph']:
-						# for torquestra data and torquestra schemas
+					if graph_name not in ['maven_graph']:
+						# for torquestra data and resin schemas
 						for element in thisGraph:
 							if 'rel' in element:
 								if element['rel'] == 'ENABLES':
@@ -478,9 +478,9 @@ def get_sentence_graph_events(item, graph_name, maven, all_event_types_vector):
 		causal_graph = item['causal_graph']
 		event_types = item['event_types']
 
-	elif graph_name == 'graph':
+	elif graph_name == 'maven_graph':
 		text=item['text']
-		causal_graph = item['graph']
+		causal_graph = item['maven_graph']
 
 		# needed bc generated sys_output includes events only with the MAVEN data
 		event_types = item['events']   
