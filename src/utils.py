@@ -189,7 +189,7 @@ def create_graphs_from_sys_output(torquestra, generated_sys_output, resin, model
 					if graph_name=='maven_graph':
 						isMaven=True
 						thisTopic = data_instance['topic']
-						#mention2event = data_instance['mention2event']
+						mention2event = data_instance['mention2event']
 
 					else:
 						isMaven=False
