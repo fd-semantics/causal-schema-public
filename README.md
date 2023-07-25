@@ -58,7 +58,7 @@ python src/run-gnn-similarity.py \
 --learning_rate 0.01 \
 --k_docs_to_return 25 \
 --metric cosine \
---data_stats False \
+--data_stats True \
 --write_data_path reports/ \
 --save_fig False \
 --save_schema_graphs False \
