@@ -49,20 +49,13 @@ def create_graphs_from_sys_output(torquestra, generated_sys_output, resin, model
 	for data_instance in tqdm(data_list):
 
 		graph_names = ['causal_graph', 'maven_graph', 'resin_graph']
+		origins = ['torquestra', 'maven', 'resin']
 
 		torque_id = ''
 		if 'torque_id' in data_instance:
 			torque_id = data_instance['torque_id']
 
-		for graph_name in graph_names:
-
-			origin = ''
-			# if graph_name=='causal_graph_detailed':
-			# 	origin='schema-original'
-			# elif 'origin' in data_instance:
-			# 	origin = data_instance['origin']
-			# else:
-			# 	origin = graph_name.replace('_graph', '')
+		for graph_name, origin in zip(graph_names, origins):
 
 			if graph_name in data_instance:
 
@@ -108,9 +101,9 @@ def create_graphs_from_sys_output(torquestra, generated_sys_output, resin, model
 							target = link['target'].replace('[EOS]', '')
 							head_tail_rel[(source, target)] = rel_binary
 
-						sys_output = data_instance['sys_output']
+						#sys_output = data_instance['sys_output']
 
-						graph_stats = graph_metrics(sys_output)
+						#graph_stats = graph_metrics(sys_output)
 	
 					all_elements = list(all_elements)
 
