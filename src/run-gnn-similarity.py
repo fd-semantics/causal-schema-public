@@ -228,28 +228,30 @@ def main():
 		os.makedirs('reports/')
 		print()
 
-	torquestra = get_torquestra(args.torquestra_path)
-
-	with open(args.topics_path, 'r') as fin:
-		maven_topics = json.load(fin)
-
-	maven_hierarchy = get_maven(args.maven_path)
-
-	if 'maven' in args.generated_output_path:
-		print('MAVEN system output!!')
-		print()
-		generated_sys_output = get_maven_sys_output(args.generated_output_path, maven_topics)
-
-	else:
-		print('Torquestra validation system output!!')
-		print()
-		generated_sys_output = get_valid_torquestra_sys_output(args.generated_output_path)
-	
-	resin = get_resin(args.resin_path)
 	cache_path = args.cache_path
 
 	if not os.path.isfile(cache_path):
+		torquestra = get_torquestra(args.torquestra_path)
+
+		with open(args.topics_path, 'r') as fin:
+			maven_topics = json.load(fin)
+
+		maven_hierarchy = get_maven(args.maven_path)
+
+		if 'maven' in args.generated_output_path:
+			print('MAVEN system output!!')
+			print()
+			generated_sys_output = get_maven_sys_output(args.generated_output_path, maven_topics)
+
+		else:
+			print('Torquestra validation system output!!')
+			print()
+			generated_sys_output = get_valid_torquestra_sys_output(args.generated_output_path)
+		
+		resin = get_resin(args.resin_path)
+
 		list_graphs = create_graphs_from_sys_output(torquestra, generated_sys_output, resin, args.model_name, cache_path, maven_hierarchy)
+	
 	else:
 		with open(cache_path, 'rb') as fin:
 			list_graphs = pickle.load(fin)
