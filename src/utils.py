@@ -152,7 +152,7 @@ def create_graphs_from_sys_output(torquestra, generated_sys_output, resin, model
 								torque_id=torque_id,
 								origin=origin,
 								graph_stats=graph_stats,
-								sys_output=sys_output,
+								#sys_output=sys_output,
 								text_embedding=text_embedding)
 
 					page_rank = get_page_rank(data)
@@ -473,30 +473,14 @@ def get_sentence_graph_events(item, graph_name, maven, all_event_types_vector):
 		# sublists returns all possible combinations of embedded lists
 		return [l[m:n+1] for m in range(i,j+1) for n in range(m,j+1)]
 
-	if graph_name == 'causal_graph_dfs':
-		sent = item['example_torque']
+	if graph_name == 'causal_graph':
+		text = item['example_torque']
 		causal_graph = item['causal_graph_dfs']
 		event_types = item['event_types']
 
-	elif graph_name == 'causal_graph_detailed':
-		# make corresponding schema graph
-		sent = item['example_torque']
-		causal_graph = make_schema_graphs(item['causal_graph_detailed'])
-		event_types = item['event_types']
-
-	elif graph_name == 'ester_causal_graph':
-		sent = item['example_ester']
-		causal_graph = item['ester_causal_graph']
-		event_types = item['ester_event_types']
-
-	elif graph_name == 'causal_graph':
-		sent=item['text']
-		causal_graph = item['causal_graph']
-		event_types = 'crime'
-
-	elif graph_name == 'maven_graph':
-		sent=item['text']
-		causal_graph = item['maven_graph']
+	elif graph_name == 'graph':
+		text=item['text']
+		causal_graph = item['graph']
 
 		# needed bc generated sys_output includes events only with the MAVEN data
 		event_types = item['events']   
@@ -504,13 +488,8 @@ def get_sentence_graph_events(item, graph_name, maven, all_event_types_vector):
 		if len(causal_graph['nodes'])==0:
 			emptyGraph=True
 
-	elif graph_name == 'torquestra_validation_graph':
-		sent=item['text']
-		causal_graph = item['torquestra_validation_graph']
-		event_types = 'torquestra-valid'
-
 	else:
-		sent=item['title']
+		text=item['title']
 		causal_graph = item['resin_graph']
 		event_types = 'resin' 
 
@@ -555,7 +534,7 @@ def get_sentence_graph_events(item, graph_name, maven, all_event_types_vector):
 				single_event_types.add(thisEventType.lower())
 
 
-	return sent, causal_graph, list(single_event_types), event_type_count_vector, emptyGraph
+	return text, causal_graph, list(single_event_types), event_type_count_vector, emptyGraph
 
 
 def get_page_rank(data):
