@@ -197,9 +197,7 @@ def create_graphs_from_sys_output(torquestra, generated_sys_output, resin, model
 						isMaven=True
 						thisTopic = data_instance['maven_topic']
 						#mention2event = data_instance['mention2event']
-					# check here, 2023-06-23
-					elif graph_name=='graph':
-						isMaven=True
+
 					else:
 						isMaven=False
 
