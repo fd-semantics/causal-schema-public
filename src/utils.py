@@ -186,7 +186,7 @@ def create_graphs_from_sys_output(torquestra, generated_sys_output, resin, model
 					## only test texts (Maven) have assigned topic labels
 					thisTopic = ''
 					mention2event = dict()
-					if graph_name=='graph':
+					if graph_name=='maven_graph':
 						isMaven=True
 						thisTopic = data_instance['maven_topic']
 						#mention2event = data_instance['mention2event']
