@@ -474,8 +474,8 @@ def get_sentence_graph_events(item, graph_name, maven, all_event_types_vector):
 		return [l[m:n+1] for m in range(i,j+1) for n in range(m,j+1)]
 
 	if graph_name == 'causal_graph':
-		text = item['example_torque']
-		causal_graph = item['causal_graph_dfs']
+		text = item['text']
+		causal_graph = item['causal_graph']
 		event_types = item['event_types']
 
 	elif graph_name == 'graph':
