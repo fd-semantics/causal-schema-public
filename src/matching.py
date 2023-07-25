@@ -131,9 +131,11 @@ def tfidf_schema_matching(list_graphs):
 
 	tfidf_matched_graphs_for_viz = []
 
-	eng_stopwords = set(stopwords.words('english'))
+	#eng_stopwords = set(stopwords.words('english'))
     
-	vectorizer = TfidfVectorizer(stop_words=eng_stopwords)
+	#vectorizer = TfidfVectorizer(stop_words=eng_stopwords)
+
+	vectorizer = TfidfVectorizer(stop_words='english')
 
 	#torquestra_texts = [d.text for d in list_graphs if d.isMaven==False and d.isResin==False]
 	torquestra_texts = [d.text for d in list_graphs if d.isMaven==False]
